@@ -1,0 +1,48 @@
+<div class="container" *ngIf="posts$ | async as posts; else loading">
+  <mat-card class="post-card" *ngFor="let post of posts">
+
+    <img style="height: 300px;" matCardImage [src]=" post.imagePost " />
+
+    <mat-card-header>
+      <mat-card-title>
+        <a style="
+        cursor: pointer;
+        color: black;
+        text-decoration: none;" [routerLink]="['/post',post.id]">
+          {{ post.titlePost }}
+        </a>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p style="
+      overflow: hidden;
+      text-overflow: ellipsis;">
+        {{ post.contentPost }}
+      </p>
+
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <mat-chip-list>
+          <mat-chip color="primary" selected *ngFor="let size of post.size">
+            {{size}}
+          </mat-chip>
+        </mat-chip-list>
+      </mat-card-actions>
+    </mat-card-content>
+    <p style="
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #757575;
+      font-weight: 400;
+      font-size:20px;">
+      {{ post.price }}
+    </p>
+
+  </mat-card>
+</div>
+<ng-template #loading>
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

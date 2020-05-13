@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shoeweb-aaf85": {
+      "hosting": {
+        "shoeweb": [
+          "shoeweb-aaf85"
+        ]
+      }
+    }
+  }
+}
