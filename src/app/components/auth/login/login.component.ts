@@ -4,6 +4,7 @@ import{UserI} from '../../../shared/models/user.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private authSvc: AuthService, private route: Router) { }
+  constructor( public authSvc: AuthService, private route: Router) { }  // sửa privite thành public 8:25 || 17/05
 
   
   loginForm = new FormGroup({
@@ -30,4 +31,6 @@ export class LoginComponent implements OnInit {
     })
     .catch(err => console.log('Error', err));
   }
+  
+  
 }

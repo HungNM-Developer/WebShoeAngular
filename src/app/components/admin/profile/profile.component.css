@@ -1,0 +1,47 @@
+.profile-card{
+    width: 100%;
+    height: 100vh;
+}
+.profile-card.label{
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
+    margin: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+.profile-card.label,img{
+    border-radius: 50%;
+    display: block;
+    width: 250px;
+    height: 250px;
+    border: 2px solid #fff;
+}
+.profile-card.label,img:hover{
+    border: 2px solid #3f51b5;
+    cursor: pointer;
+}
+
+mat-card-header{
+    justify-content: center;
+}
+mat-form-field,
+input.mat-flat-button{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+input.mat-flat-button{
+    background-color: #3f51b5;
+    padding: 0.4rem;
+    color: aliceblue;
+}
+.mat-dialog-actions{
+    width: 100%;
+    min-height: 150px;
+    margin-top: 1rem;
+
+}

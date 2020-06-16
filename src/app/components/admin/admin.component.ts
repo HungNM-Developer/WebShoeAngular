@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FileI } from './../../../app/shared/models/file.interface';
+import { UserI } from 'src/app/shared/models/user.interface';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
-import {MatTableDataSource} from '@angular/material/table';
-import { PostService } from '../../components/posts/post.service';
-import { PostI } from 'src/app/shared/models/post.interface';
-
-import Swal from 'sweetalert2';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../../shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-admin',
@@ -14,57 +14,64 @@ import { ModalComponent } from '../../shared/components/modal/modal.component';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  options: FormGroup;
+  colorControl = new FormControl('primary');
+  fontSizeControl = new FormControl(16, Validators.min(10));
 
-  displayedColumns: string[] = ['imagePost','titlePost', 'contentPost', 'size', 'price', 'actions'];
-  dataSource = new MatTableDataSource();
+ 
 
-  constructor(private postSvc: PostService, public dialog: MatDialog){}
+  getFontSize() {
+    return Math.max(10, this.fontSizeControl.value);
+  }
+
+  public image: FileI;
+  public currentImage = 'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/64486706_2343423725906141_534789064042217472_n.jpg?_nc_cat=109&_nc_sid=8bfeb9&_nc_ohc=5BGHM7GEK-sAX_Zvfz5&_nc_ht=scontent-xsp1-1.xx&oh=c9c12ae2099149f5bd73c1b4e9d9fb52&oe=5EE7837A';
+  
+  public profileForm = new FormGroup({
+    displayName: new FormControl('',Validators.required),
+    email: new FormControl({value:'',disabled:true},Validators.required),
+    photoURL: new FormControl('',Validators.required),
+  })
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
+  public opened = false;
+  constructor(private breakpointObserver: BreakpointObserver, private authSvc: AuthService) {
+   }
+  
 
   ngOnInit(): void {
-    this.postSvc
-    .getAllPosts()
-    .subscribe(posts => (this.dataSource.data = posts));
+    this.authSvc.userData$.subscribe(user => {
+      this.initValuesForm(user);
+      
+    });
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  onEditPost(post: PostI){
-    console.log('Edit post',post);
-  }
-  onDeletePost(post: PostI){
+  onSaveUser(user: UserI): void{
+    this.authSvc.preSaveUserProfile(user, this.image);
     
-    Swal.fire({
-      title: 'Are you sure?',
-      text: `You won't be able to revert this!`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then(result => {
-      if(result.value){
-        this.postSvc.deletePostById(post).then(()=>{
-          Swal.fire('Deleted!', 'Your post has been deleted.', 'success');
-        }).catch((error)=>{
-          Swal.fire('Error!', 'There was an error deleting this post.', 'error');
-        })
-        ;
-      }
-    })
-  }
-  onNewPost(){
-    this.openDialog();
   }
 
-  openDialog(): void{
-    const dialogRef = this.dialog.open(ModalComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result ${result}`);
-    })
+  private initValuesForm(user: UserI): void{
+    if(user.photoURL){
+      this.currentImage = user.photoURL;
+    }
+    this.profileForm.patchValue({
+      displayName: user.displayName,
+      email: user.email,
+      
+    });
   }
+
+
+  handleImage(image: FileI): void{
+    this.image = image;
+  }
+  
 }
 
 

@@ -4,15 +4,61 @@
     margin: 100px 0;
   }
 
+
   .mat-form-field{
     width: 100%;
-    min-width: 300px;
+    min-width: 500px;
   }
 
-  .mat-card-title,
+  .mat-card-title{
+    justify-content:left;
+    display: flex;
+    font-size: 29px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+    
+  }
   .mat-card-content{
     display: flex;
     justify-content: center;
   }
 
+.Sign-in-with-social-media{
+  margin-top: 16px;
+  color: #546e7a;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.05px;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+
+.formGroup{
+  margin-top: 24px;
+  display: block;
+  padding: 8px 74px;
+  font-size: 0.9375rem;
+  background-color: #FFFFFF;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 7px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+  
   

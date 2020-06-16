@@ -1,5 +1,5 @@
 .mat-card{
-    background-color: aliceblue;
+    background-color: #ffffff;
     color: black;
     width: 80%;
     margin: 1% auto;
@@ -16,7 +16,7 @@
 .mat-card-content{
     width: 80%;
     text-align: center;
-    margin: 0 auto;
+    margin-left: 0 auto;
 }
 
 .align-center{

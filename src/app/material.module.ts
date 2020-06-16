@@ -15,6 +15,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 const myModule = [
@@ -32,7 +34,9 @@ const myModule = [
   MatDividerModule,
   MatTableModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  ScrollingModule,
+  MatGridListModule
 ];
 
 @NgModule({

@@ -17,20 +17,22 @@
     <mat-card-content>
       <p style="
       overflow: hidden;
-      text-overflow: ellipsis;">
+      text-overflow: ellipsis;
+      margin-left: 15px;">
         {{ post.contentPost }}
       </p>
 
       <mat-divider></mat-divider>
       <mat-card-actions>
         <mat-chip-list>
-          <mat-chip color="primary" selected *ngFor="let size of post.size">
+          <mat-chip color="primary" style="margin-left: 15px;" selected *ngFor="let size of post.size">
             {{size}}
           </mat-chip>
         </mat-chip-list>
       </mat-card-actions>
     </mat-card-content>
     <p style="
+      margin-left: 10px;
       overflow: hidden;
       text-overflow: ellipsis;
       color: #757575;

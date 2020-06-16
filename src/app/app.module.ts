@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NewPostComponent } from './components/post/new-post/new-post.component';
+import { NewPostComponent } from './components/posts/new-post/new-post.component';
 import { NewPostModule } from './components/posts/new-post/new-post.module';
 import { PostComponent } from './components/posts/post/post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +18,13 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './shared/components/modal/modal.component';
-//import { AngularFireStorage } from '@angular/fire/storage/storage';
+import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
+import { ProfileModule } from './components/admin/profile/profile.module';
+import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
+import { EditPostModule } from './components/posts/edit-post/edit-post.module';
+
+
+
 
 //import { TableComponent } from './shared/components/table/table.component';
 
@@ -29,6 +35,12 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     PostComponent,
     ToolbarComponent,
     ModalComponent,
+    ContainerAppComponent,
+    EditPostComponent,
+    
+
+  
+   
     
     //TableComponent,
   ],
@@ -43,6 +55,10 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     NewPostModule,
     MaterialModule,
     ReactiveFormsModule,
+    ProfileModule,
+    EditPostModule,
+   
+ 
     
   ],
   entryComponents:[ModalComponent],
