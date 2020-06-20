@@ -1,12 +1,10 @@
 
 <mat-toolbar color="primary">
+    <img style="width: 115px;height: 90px; margin-top: 10px; border-radius: 50%;" src="https://i.pinimg.com/originals/ac/a6/b7/aca6b72e8125d6dadcdc60318a140a5c.jpg">
+    &nbsp; &nbsp;
     <a [routerLink]="['/']">{{appName}}</a>
     <span class="fill-remaining-space"></span>
 
-    
-    
-               
-            
     <a [routerLink]="['/admin/posts']" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
        
         <button mat-button>Admin</button>   

@@ -44,12 +44,16 @@
     margin-inline-end: 0px;
 }
 
+.iconGoogle p{
+  display:inherit;
+}
+
 
 
 .formGroup{
   margin-top: 24px;
   display: block;
-  padding: 8px 74px;
+  padding: 8px 44px;
   font-size: 0.9375rem;
   background-color: #FFFFFF;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;

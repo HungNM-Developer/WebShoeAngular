@@ -69,16 +69,7 @@ table {
 .row .col.s7 {
     width: 58.33333%;
 }
-.row, .row .col.s1, .row .col.s10, .row .col.s11, .row .col.s12, .row .col.s2, .row .col.s3, .row .col.s4, .row .col.s5, .row .col.s7, .row .col.s8, .row .col.s9 {
-    margin-left: auto;
-}
-.row .col.s1, .row .col.s10, .row .col.s11, .row .col.s12, .row .col.s2, .row .col.s3, .row .col.s4, .row .col.s5, .row .col.s7, .row .col.s8, .row .col.s9 {
-    right: auto;
-    left: auto;
-}
-.row .col {
-    padding: 0 1rem;
-}
+
 
 .row .col {
     float: left;
@@ -132,24 +123,7 @@ p {
 }
 }
 
-.row .col.s5 {
-    width: 41.66667%;
-}
-.row, .row .col.s1, .row .col.s10, .row .col.s11, .row .col.s12, .row .col.s2, .row .col.s3, .row .col.s4, .row .col.s5, .row .col.s7, .row .col.s8, .row .col.s9 {
-    margin-left: auto;
-}
-.row .col.s1, .row .col.s10, .row .col.s11, .row .col.s12, .row .col.s2, .row .col.s3, .row .col.s4, .row .col.s5, .row .col.s7, .row .col.s8, .row .col.s9 {
-    right: auto;
-    left: auto;
-}
-.row .col {
-    padding: 0 1rem;
-}
-.row .col {
-    float: left;
-    min-height: 1px;
-    padding: 0 .75rem;
-}
+
 .white-text {
   color: #fff!important;
 }
@@ -159,20 +133,6 @@ p {
 h5 {
   font-size: 1.64rem;
   margin: .82rem 0 .656rem;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-  color: #333;
-}
-h1, h2, h3, h4, h5, h6, p {
-  font-family: Muli,sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 110%;
-}
-.no-margin {
-  margin: 0!important;
 }
 
 
@@ -194,32 +154,4 @@ h1, h2, h3, h4, h5, h6 {
 .gradient-45deg-green-teal {
   background: -webkit-linear-gradient(45deg,#43a047,#1de9b6)!important;
   background: linear-gradient(45deg,#43a047,#1de9b6)!important;
-}
-.min-height-100 {
-  min-height: 100px!important;
-}
-.card {
-  -webkit-transition: box-shadow .25s;
-  transition: box-shadow .25s;
-  
-
-}
-.card, .card-panel {
-  margin: .5rem 0 1rem;
-  border-radius: 2px;
-  background-color: #fff;
-}
-.card, .card.large, .card.medium, .card.small {
-  position: relative;
-}
-
-.animation0 {
-  -webkit-transform: translateX(-30px);
-  transform: translateX(-30px);
-  opacity: 0;
-}
-.animation100 {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
 }

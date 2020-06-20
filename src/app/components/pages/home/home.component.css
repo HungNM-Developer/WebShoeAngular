@@ -1,14 +1,15 @@
 .container{
+    background-color: black;
     margin-top:  25px;
     display: grid;
     grid-template-columns: 24% 24% 24% 24%;
-    grid-column-gap: 10px;
+    grid-column-gap: 15px;
     grid-row-gap: 15px;
     justify-content: center;
 }
 
 .post-card{
-    background-color: aliceblue;
+    background-color: white;
     color: black;
     border-radius: 5px;
     padding: 20px;

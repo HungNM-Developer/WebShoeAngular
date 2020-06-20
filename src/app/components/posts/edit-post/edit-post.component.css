@@ -9,7 +9,8 @@
 }
 .mat-flat-button{
     width: 100%;
-    background-color: aquamarine;
+    background-color: #3847a0;
+    color: white;
 }
 .custom-file{
     border: 1px solid #ccc;

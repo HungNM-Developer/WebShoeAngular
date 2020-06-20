@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { PostService } from '../../../components/posts/post.service';
 import { PostI } from 'src/app/shared/models/post.interface';
@@ -6,6 +6,11 @@ import { PostI } from 'src/app/shared/models/post.interface';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+
+
 
 
 @Component({
@@ -20,9 +25,14 @@ export class TableComponent implements OnInit {
   displayedColumns: string[] = ['imagePost','titlePost', 'contentPost', 'size', 'price', 'actions'];
   dataSource = new MatTableDataSource();
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
   constructor(private postSvc: PostService, public dialog: MatDialog){}
 
   ngOnInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
     this.postSvc
     .getAllPosts()
     .subscribe(posts => (this.dataSource.data = posts));
@@ -31,6 +41,9 @@ export class TableComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   onEditPost(post: PostI){

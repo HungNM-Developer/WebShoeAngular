@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
-
+import {AuthGuard} from './../../shared/guards/auth.guard';
 const routes: Routes = [
   {
     path: '', component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'posts',
@@ -19,6 +20,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./profile/profile.module').then(
             m => m.ProfileModule
+          )
+      },
+      {
+        path: 'registered',
+        loadChildren: () =>
+          import('../auth/registered/registered.module').then(
+            m => m.RegisteredModule
           )
       }
     ]

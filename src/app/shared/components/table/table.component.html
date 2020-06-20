@@ -97,11 +97,11 @@
     </div>
     
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8" >
 
       <!-- Position Column -->
       <ng-container matColumnDef="titlePost">
-        <th mat-header-cell *matHeaderCellDef style="color: #263238;
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: #263238;
         font-size: 14px;
         font-family: Roboto, Helvetica, Arial, sans-serif;
         font-weight: 500;
@@ -112,7 +112,7 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="contentPost">
-        <th mat-header-cell *matHeaderCellDef style="color: #263238;
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: #263238;
         font-size: 14px;
         font-family: Roboto, Helvetica, Arial, sans-serif;
         font-weight: 500;
@@ -123,7 +123,7 @@
 
       <!-- Weight Column -->
       <ng-container matColumnDef="size">
-        <th mat-header-cell *matHeaderCellDef style="color: #263238;
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: #263238;
         font-size: 14px;
         font-family: Roboto, Helvetica, Arial, sans-serif;
         font-weight: 500;
@@ -146,7 +146,7 @@
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef style="color: #263238;
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: #263238;
         font-size: 14px;
         font-family: Roboto, Helvetica, Arial, sans-serif;
         font-weight: 500;
@@ -170,5 +170,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
 </div>

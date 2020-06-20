@@ -51,6 +51,9 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  onLogout(): void{
+    this.authSvc.logout();
+  }
   onSaveUser(user: UserI): void{
     this.authSvc.preSaveUserProfile(user, this.image);
     

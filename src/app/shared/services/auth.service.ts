@@ -16,7 +16,7 @@ export class AuthService {
   private filePath: string;
 
   constructor(public afAuth: AngularFireAuth, private storage: 
-    AngularFireStorage, private route: Router) {  //sửa privide thành public 8:22 || 17/05
+    AngularFireStorage, private route: Router) {  
     this.userData$ = afAuth.authState;
   }
 
@@ -70,6 +70,21 @@ export class AuthService {
       })
     ).subscribe();
 
+  }
+
+  async register(email:string,password:string){
+    try{
+      const result = await this.afAuth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      return result;
+    }
+    
+    catch(error)
+    {
+      console.log(error);
+    }	
   }
 
 
