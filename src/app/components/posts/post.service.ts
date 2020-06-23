@@ -43,9 +43,6 @@ export class PostService {
     return this.afs.doc<PostI>(`posts/${id}`).valueChanges();
   }
 
-
-
-
   public deletePostById(post: PostI){
     return this.postsCollection.doc(post.id).delete();
   }
@@ -70,6 +67,7 @@ export class PostService {
       imagePost: this.downloadURL,
       fileRef: this.filePath,
       size: post.size,
+      quantity: post.quantity,
       price: post.price,
     };
     

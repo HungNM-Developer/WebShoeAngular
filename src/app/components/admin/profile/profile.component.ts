@@ -12,12 +12,12 @@ import { from } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
   public image: FileI;
-  public currentImage = 'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/64486706_2343423725906141_534789064042217472_n.jpg?_nc_cat=109&_nc_sid=8bfeb9&_nc_ohc=5BGHM7GEK-sAX_Zvfz5&_nc_ht=scontent-xsp1-1.xx&oh=c9c12ae2099149f5bd73c1b4e9d9fb52&oe=5EE7837A';
+  public currentImage = '../../../../assets/images/aca6b72e8125d6dadcdc60318a140a5c.png';
 
   constructor(private authSvc: AuthService) { }
 
   public profileForm = new FormGroup({
-    displayName: new FormControl('',Validators.required),
+    displayName: new FormControl({value:'',disabled:true},Validators.required),
     email: new FormControl({value:'',disabled:true},Validators.required),
     photoURL: new FormControl('',Validators.required),
   })

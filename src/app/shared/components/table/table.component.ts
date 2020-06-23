@@ -9,7 +9,9 @@ import { ModalComponent } from '../modal/modal.component';
 
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { element } from 'protractor';
 
 
 
@@ -19,16 +21,21 @@ import {MatSort} from '@angular/material/sort';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-
   
-
-  displayedColumns: string[] = ['imagePost','titlePost', 'contentPost', 'size', 'price', 'actions'];
+  displayedColumns: string[] = ['imagePost','titlePost', 'contentPost',
+   'size', 'quantity', 'price', 'status', 'actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private postSvc: PostService, public dialog: MatDialog){}
+
+  public posts: Observable<PostI[]>;
+  public SearchPostForm = new FormGroup({
+    titlePost: new FormControl('', Validators.required),
+    contentPost: new FormControl('', Validators.required),
+  })
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -38,9 +45,11 @@ export class TableComponent implements OnInit {
     .subscribe(posts => (this.dataSource.data = posts));
   }
 
+  
+
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    const filterValue = (event.target as HTMLInputElement).value;  
+    this.dataSource.filter = filterValue.trim().toLowerCase()
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -88,5 +97,27 @@ export class TableComponent implements OnInit {
       console.log(`Dialog result ${result}`);
     })
   }
+
+  
+  convertPrice(number: number){
+    return number.toLocaleString('vi',{
+      style: 'currency',
+      currency: 'VND',
+    })
+  }
+
+  
+  // firstname='string';
+  // Search(){
+  //   if(this.firstname !=""){
+  //     this.list = this.list.filter(res=>{
+  //       return res.Name.toLocaleLowerCase().match(this.firstname.toLocaleLowerCase());
+  //   });
+  //   }
+  //   else if (this.firstname =="")
+  //   {
+  //     this.ngOnInit();
+  //   }
+  // }
 
 }

@@ -7,6 +7,7 @@
     vertical-align: top;
     overflow: hidden;
     position: relative;
+   
     margin: 20px;
     text-align: center;
     border-radius: 50%;
@@ -14,10 +15,10 @@
 
 
 .profile-card.label,img{
-    border-radius: 50%;
+    border-radius: 10%;
     display: block;
-    width: 250px;
-    height: 250px;
+    width: 255px;
+    height: 255px;
     border: 2px solid #fff;
 }
 .profile-card.label,img:hover{

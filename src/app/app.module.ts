@@ -37,9 +37,6 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     ModalComponent,
     ContainerAppComponent,
     EditPostComponent,
-    
-
-  
    
     
     //TableComponent,
@@ -57,8 +54,6 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     ReactiveFormsModule,
     ProfileModule,
     EditPostModule,
-   
- 
     
   ],
   entryComponents:[ModalComponent],

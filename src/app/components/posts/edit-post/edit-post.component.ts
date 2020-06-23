@@ -20,9 +20,11 @@ export class EditPostComponent implements OnInit {
     id: new FormControl('', Validators.required),
     titlePost: new FormControl('', Validators.required),
     contentPost: new FormControl('',Validators.required),
+    quantity: new FormControl('', Validators.min(0)),
     size: new FormControl('',Validators.required),
     imagePost: new FormControl('',Validators.required),
-    price: new FormControl('',Validators.required),
+    price: new FormControl('',Validators.min(0)),
+    status: new FormControl('', Validators.required),
   });
 
   ngOnInit() {
@@ -49,6 +51,7 @@ export class EditPostComponent implements OnInit {
       titlePost:this.post.titlePost,
       contentPost:this.post.contentPost,
       size: this.post.size,
+      quantity: this.post.quantity,
       price: this.post.price,
     });
   }

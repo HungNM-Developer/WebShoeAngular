@@ -9,10 +9,12 @@ import { from } from 'rxjs';
 })
 export class RegisteredComponent implements OnInit {
   RegisterForm = new FormGroup({
+    displayName: new FormControl('',Validators.required),
     email: new FormControl('',Validators.required),
     password: new FormControl('',Validators.required)
   })
 
+  private image:any;
   constructor(public authSvc:AuthService) { }
 
   ngOnInit(): void {
@@ -20,6 +22,9 @@ export class RegisteredComponent implements OnInit {
   onRegister(){
     const{email,password} = this.RegisterForm.value;
     this.authSvc.register(email,password);
+  }
+  handleImage(event:any): void{
+    this.image = event.target.files[0]
   }
 
 }

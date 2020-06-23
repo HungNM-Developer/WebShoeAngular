@@ -5,6 +5,8 @@ export interface PostI{
     id?: string;
     fileRef?: string;
     size: string;
-    price: string;
+    quantity: number;
+    price: number;
+    status?: any;
     
 }

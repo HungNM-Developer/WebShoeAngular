@@ -4,9 +4,16 @@
     
         <mat-card-content>
             <form [formGroup]="RegisterForm" (ngSubmit)="onRegister()">
-                <p>
+                <!-- <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Username</mat-label>
+                        <input type="text" matInput placeholder="Please enter your account" formControlName="displayName" />
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                    </mat-form-field>
+                </p> -->
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
                         <input type="text" matInput placeholder="Please enter your account" formControlName="email" />
                         <mat-icon matSuffix>account_circle</mat-icon>
                     </mat-form-field>
@@ -19,6 +26,13 @@
                         <mat-icon matSuffix>lock</mat-icon>
                     </mat-form-field>
                 </p>
+                <!-- <div class="container-input-file">
+                    <label class="custom-file">
+                        <input type="file" formControlName="imagePost" (change)="handleImage($event)">
+                        <mat-icon>cloud_upload</mat-icon>
+                        <span>CHOOSE IMAGE</span>
+                    </label>
+                </div> -->
 
                 <button style="width: 100%" type="submit" mat-raised-button color="primary">REGISTERED  NOW</button>
             </form>

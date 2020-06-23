@@ -29,7 +29,7 @@ export class AuthService {
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
     .then((_result) => {
-        console.log('You have been successfully logged in!')
+        alert('You have been successfully logged in!')
         this.route.navigate(['/']);
 
     }).catch((error) => {
@@ -41,7 +41,7 @@ export class AuthService {
     const { email, password } = user;
     return this.afAuth
       .signInWithEmailAndPassword(email, password);
-
+      
   }
 
   logout() {
@@ -72,19 +72,27 @@ export class AuthService {
 
   }
 
-  async register(email:string,password:string){
+  register(email:string,password:string){
     try{
-      const result = await this.afAuth.createUserWithEmailAndPassword(
+      const result = this.afAuth.createUserWithEmailAndPassword(
         email,
         password
       );
-      return result;
+      alert('SignUp Successfull ')
+      return result
     }
     
     catch(error)
     {
       console.log(error);
     }	
+    // return new Promise<any>((resolve, reject)=>{
+    //   this.afAuth.createUserWithEmailAndPassword(email,password)
+    //   .then(res => {
+    //     resolve(res);
+    //   }, err =>reject(err))
+    //   alert('SignUp Successfull ')
+    // })
   }
 
 

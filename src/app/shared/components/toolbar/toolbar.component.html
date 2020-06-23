@@ -1,8 +1,10 @@
 
 <mat-toolbar color="primary">
-    <img style="width: 115px;height: 90px; margin-top: 10px; border-radius: 50%;" src="https://i.pinimg.com/originals/ac/a6/b7/aca6b72e8125d6dadcdc60318a140a5c.jpg">
-    &nbsp; &nbsp;
+    <img style="width: 80px;height: 60px;" src="../../../../assets/images/nike-logo-white.png">
+    &nbsp;
+    <span class="fill-remaining-space"></span>
     <a [routerLink]="['/']">{{appName}}</a>
+    
     <span class="fill-remaining-space"></span>
 
     <a [routerLink]="['/admin/posts']" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
@@ -14,6 +16,7 @@
     <a [routerLink]="['/about']" routerLinkActive="active">
         <button mat-button>About</button>
     </a>
+    
 
     <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
         <button mat-button>Logout</button>

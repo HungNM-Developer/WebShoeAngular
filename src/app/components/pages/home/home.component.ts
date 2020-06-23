@@ -57,5 +57,12 @@ export class HomeComponent implements OnInit {
     this.posts$ = this.postSvc.getAllPosts();
   }
 
+  convertPrice(number: number){
+    return number.toLocaleString('vi',{
+      style: 'currency',
+      currency: 'VND',
+    })
+  }
+
 }
 

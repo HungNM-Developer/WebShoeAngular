@@ -6,31 +6,52 @@
   </button>
 
   &nbsp;&nbsp;&nbsp;
+
+  <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+  &nbsp;&nbsp;
   <a routerLink="/">
     <span>Home</span>
   </a>
   <span class="fill-remaining-space"></span>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <div class="search-container">
-    <div class="form" action="">
-      
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </div>
+  <button mat-icon-button [matMenuTriggerFor]="menuNotification" aria-label="Example icon-button with a menu">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <mat-menu #menuNotification="matMenu" >
+    <button mat-menu-item>
+      <mat-icon>face</mat-icon>
+      <span>Nguyễn Mạnh Hùng</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>2175173</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>code</mat-icon>
+      <span>Web Front - end</span>
+    </button>
+  </mat-menu>
+  &nbsp; &nbsp;
+
+
+  <button mat-button [matMenuTriggerFor]="menu"><img style="width: 40px;height: 40px;" [src]="currentImage"></button>
+  <mat-menu #menu="matMenu" yPosition="below">
+    <button mat-menu-item>
+      <p>Hello, &nbsp; {{displayName}}</p>
+    </button>
+    <button mat-menu-item [routerLink]="['/login']" routerLinkActive="active" (click)="onLogout()">
+      <p>
+        <mat-icon>exit_to_app</mat-icon>Logout
+      </p>
+    </button>
+  </mat-menu>
+  <!-- hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto navbar-right-top">
+    </ul>
   </div>
 
- 
-   
-  
-      
-  
- 
-  <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">notifications</mat-icon>
-  &nbsp;  &nbsp;  
-  <img style="width: 40px;height: 40px;" [src]="currentImage">
 
- 
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -47,10 +68,11 @@
                 (change)="handleImage(($event ?.target ?.files)[0])" />
             </div>
             <div class="jss435 MuiTypography-h4">
-              <input matInput formControlName="displayName">
+              <input style="color: black;" matInput formControlName="displayName">
               <input matInput formControlName="email">
             </div>
           </div>
+
         </div>
 
         <mat-divider style="margin: 16px 0px;"></mat-divider>
@@ -91,7 +113,7 @@
     </cdk-virtual-scroll-viewport>
   </mat-sidenav>
 
-  <mat-sidenav-content>  
+  <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

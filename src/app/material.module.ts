@@ -40,7 +40,8 @@ const myModule = [
   ScrollingModule,
   MatGridListModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  
 ];
 
 @NgModule({
