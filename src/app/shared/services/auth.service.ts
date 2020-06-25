@@ -7,7 +7,8 @@ import { error } from '@angular/compiler/src/util';
 import { FileI } from '../models/file.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +34,8 @@ export class AuthService {
         this.route.navigate(['/']);
 
     }).catch((error) => {
-        console.log(error)
+      alert('Login failed')
+        // console.log(error)
     })
   }
 
@@ -73,26 +75,40 @@ export class AuthService {
   }
 
   register(email:string,password:string){
-    try{
-      const result = this.afAuth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      alert('SignUp Successfull ')
-      return result
-    }
-    
-    catch(error)
-    {
-      console.log(error);
-    }	
-    // return new Promise<any>((resolve, reject)=>{
-    //   this.afAuth.createUserWithEmailAndPassword(email,password)
-    //   .then(res => {
-    //     resolve(res);
-    //   }, err =>reject(err))
+    // try{
+    //   const result = this.afAuth.createUserWithEmailAndPassword(
+    //     email,
+    //     password
+    //   );
     //   alert('SignUp Successfull ')
-    // })
+    //   return result
+    // }
+    
+    // catch(error)
+    // {
+    //   console.log(error);
+    // }	
+   
+    return new Promise<any>((resolve, reject)=>{
+      this.afAuth.createUserWithEmailAndPassword(email,password)
+      .then(res =>{
+        console.log('Successfully', res);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Sign Up Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.logout();
+      })     
+      .catch(_err =>Swal.fire({
+        icon: 'error',
+        title: 'Sign Up Failed',
+        //footer: '<a href="/registered">No account you must register</a>'
+      }) 
+      );
+    });
   }
 
 

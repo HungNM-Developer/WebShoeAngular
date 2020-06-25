@@ -1,0 +1,42 @@
+:host{
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+
+.mat-form-field{
+  width: 100%;
+  min-width: 500px;
+}
+.a{
+color: white;
+}
+.mat-card-title{
+  justify-content:left;
+  display: flex;
+  font-size: 29px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.24px;
+  
+}
+.mat-card-content{
+  display: flex;
+  justify-content: center;
+}
+.background{
+  
+  height: 100vh;
+}
+.custom-file{
+  border: 1px solid white;
+  display: inline-block;
+  padding: 6px;
+  cursor: pointer;
+  width: 98%;
+}
+.container-input-file{
+  margin: 2rem 0;
+}

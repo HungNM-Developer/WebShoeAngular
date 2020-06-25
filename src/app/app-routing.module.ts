@@ -25,6 +25,7 @@ const routes: Routes = [
       { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
       { path: 'login', loadChildren: () => import('./components/auth/login/login.module').then(m => m.LoginModule) },
       { path: 'registered', loadChildren: () => import('./components/auth/registered/registered.module').then(m => m.RegisteredModule) },
+      { path: 'pagelogin', loadChildren: () => import('./components/auth/pagelogin/pagelogin.module').then(m => m.PageloginModule) },
 
       {
         path: '',

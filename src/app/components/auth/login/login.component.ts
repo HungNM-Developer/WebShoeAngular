@@ -3,6 +3,8 @@ import{AuthService} from '../../../shared/services/auth.service';
 import{UserI} from '../../../shared/models/user.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { error } from 'console';
 
 
 @Component({
@@ -27,10 +29,25 @@ export class LoginComponent implements OnInit {
     .loginByEmail(form)
     .then(res =>{
       console.log('Successfully', res);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Logged In Successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
       this.route.navigate(['/']);
     })
-    .catch(err => console.log('Error', err));
+    
+    .catch(_err =>Swal.fire({
+      icon: 'error',
+      title: 'Login Failed',
+      footer: '<a href="/registered">No account you must register</a>'
+    }) );
+    
+    // console.log('Error', err)
   }
   
   
 }
+

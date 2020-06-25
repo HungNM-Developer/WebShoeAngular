@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { PostService } from '../../../components/posts/post.service';
 import { PostI } from 'src/app/shared/models/post.interface';
@@ -13,7 +13,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { element } from 'protractor';
 
-
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
+import {MatChipInputEvent} from '@angular/material/chips';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-table',
@@ -21,7 +24,10 @@ import { element } from 'protractor';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  
+
+ 
+
+
   displayedColumns: string[] = ['imagePost','titlePost', 'contentPost',
    'size', 'quantity', 'price', 'status', 'actions'];
   dataSource = new MatTableDataSource();
@@ -29,13 +35,13 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+  
+  
   constructor(private postSvc: PostService, public dialog: MatDialog){}
 
+
   public posts: Observable<PostI[]>;
-  public SearchPostForm = new FormGroup({
-    titlePost: new FormControl('', Validators.required),
-    contentPost: new FormControl('', Validators.required),
-  })
+  
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;

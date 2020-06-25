@@ -94,7 +94,6 @@
 </mat-form-field>
 
 
-
 <div class="jss1105">
   <div class="MuiGrid-container MuiGrid-spacing-xs-4">
     <mat-card class="example-carded mat-elevation-z8">
@@ -127,11 +126,6 @@
       </section>
     </mat-card>
 
-    <div id="piechart"></div>
-
-
-
-
     <div class="container-btn-new ">
       <div class="wrapper mat-elevation-z8">
         <form class="search_box">
@@ -140,13 +134,15 @@
               <mat-form-field style="margin-top: -19px">
                 <mat-label>Choose</mat-label>
                 <mat-select>
-                  <mat-option value="option" matColumnDef="titlePost" formControlName="titlePost">Name</mat-option>
-                  <mat-option value="option" matColumnDef="contentPost">Type</mat-option>
+                  <mat-option value="option" >Men's Shoe</mat-option>
+                  <mat-option value="option" >Men's Running</mat-option>
                 </mat-select>
+                
               </mat-form-field>
             </div>
           </div>
           <div class="search_field">
+            
             <input matInput (keyup)="applyFilter($event)" type="text" class="input" placeholder="Search">
           </div>
           <button mat-raised-button color="primary">
@@ -239,7 +235,7 @@
       </ng-container>
 
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: #263238;
+        <th mat-header-cell *matHeaderCellDef style="color: #263238;
         font-size: 14px;
         font-family: Roboto, Helvetica, Arial, sans-serif;
         font-weight: 500;

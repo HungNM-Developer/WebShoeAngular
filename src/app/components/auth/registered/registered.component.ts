@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{FormGroup,FormControl, Validators} from'@angular/forms';
 import{AuthService} from '../../../shared/services/auth.service';
 import { from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-registered',
   templateUrl: './registered.component.html',
@@ -19,7 +20,7 @@ export class RegisteredComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onRegister(){
+  async onRegister(){
     const{email,password} = this.RegisterForm.value;
     this.authSvc.register(email,password);
   }

@@ -23,8 +23,8 @@ import { ProfileModule } from './components/admin/profile/profile.module';
 import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 //import { TableComponent } from './shared/components/table/table.component';
 
@@ -55,6 +55,10 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     ProfileModule,
     EditPostModule,
     
+    HttpClientModule,
+
+    FormsModule
+
   ],
   entryComponents:[ModalComponent],
   providers: [

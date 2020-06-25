@@ -4,3 +4,32 @@
     </app-login>
 </div>
  -->
+ <div class="background">
+    <mat-card  mat-elevation-z12>
+        <mat-card-title class="mat-card-title">Registered With NodeJs</mat-card-title>
+    
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput placeholder="Please enter your account" [(ngModel)]="email" name="email" ngModel required email/>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password </mat-label>
+                        <input type="password" matInput placeholder="Please enter your account"
+                        [(ngModel)]="password" name="password" ngModel required password/>
+                        <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                </p>
+                <div class="form-group">
+                    <button style="width: 100%" type="submit" mat-raised-button color="primary">REGISTERED NOW with NodeJs</button>
+                </div>
+                
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
